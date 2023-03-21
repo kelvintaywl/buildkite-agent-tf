@@ -1,0 +1,15 @@
+# DigitalOcean cloud-config
+# See
+
+users:
+  - name: buildkite-user
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+disable_root: true
+# packages:
+#  - nginx
+runcmd:
+  - 'TOKEN="${token}" bash -c "`curl -sL https://raw.githubusercontent.com/buildkite/agent/master/install.sh`"'
+  - 'export BUILDKITE_AGENT_NAME="${name}"'
+  - 'export BUILDKITE_AGENT_TAGS="${tags}"'
+  - '~/.buildkite-agent/bin/buildkite-agent start'
