@@ -1,9 +1,9 @@
 terraform {
   required_version = "~> 1.4.0"
   required_providers {
-    digitalocean = {
-      source  = "digitalocean/digitalocean"
-      version = "2.26.0"
+    aws = {
+      source  = "hashicorp/aws"
+      version = "4.58.0"
     }
     buildkite = {
       source  = "buildkite/buildkite"
@@ -12,8 +12,11 @@ terraform {
   }
 }
 
-provider "digitalocean" {
-  # Assumes DIGITALOCEAN_TOKEN env var set
+provider "aws" {
+  region = var.aws_region
+  default_tags {
+    tags = var.aws_tags
+  }
 }
 
 provider "buildkite" {
