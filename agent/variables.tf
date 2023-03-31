@@ -7,7 +7,7 @@ variable "buildkite_agent_name" {
 variable "buildkite_agent_tags" {
   type        = string
   description = "BuildKite agent instance tags"
-  default     = "ci=true,linux=true,source=digitalocean"
+  default     = "ci=true,linux=true,source=aws-ec2"
 }
 
 variable "user_data_script_template" {

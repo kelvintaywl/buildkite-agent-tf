@@ -1,5 +1,9 @@
+#cloud-config
+packages:
+  - git
+# FIXME: switch to ec2-user or try systemd to isolate (consider systemd definition)
 runcmd:
   - 'TOKEN="${token}" bash -c "`curl -sL https://raw.githubusercontent.com/buildkite/agent/master/install.sh`"'
   - 'export BUILDKITE_AGENT_NAME="${name}"'
   - 'export BUILDKITE_AGENT_TAGS="${tags}"'
-  - 'nohup ~/.buildkite-agent/bin/buildkite-agent start &'
+  - 'nohup /.buildkite-agent/bin/buildkite-agent start &'

@@ -1,20 +1,7 @@
 # buildkite-agent-tf
 
-Terraforming a BuildKite Agent via a DigitalOcean droplet.
+Spinning up Buildkite resources via Terraform, to try out Buildkite!
 
-## Prerequisites
+For setting up a Buildkite agent, please go to the [agent](./agent/) folder.
 
-- DigitalOcean account
-- Terraform >= v1.4.0
-
-## Required credentials
-
-- Buildkite (assumed BUILDKITE_API_TOKEN env var is set)
-- DigitalOcean (assumed DIGITALOCEAN_TOKEN env var is set)
-
-## Notes
-
-Somehow, the user_data loaded for digitalocean_droplet is somehow not running.
-I am unsure if this is due to input error (invalid cloud-init yaml), or perhaps a provider issue.
-
-I ended up running the same steps manually inside the created Droplet.
+For setting up a Buildkite pipeline, please go to the [pipeline](./agent/) folder.
